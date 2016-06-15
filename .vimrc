@@ -38,6 +38,7 @@ set showmatch
 set matchtime=1
 "set color 
 color molokai
+"colorscheme solarized
 let g:molokai_original = 1
 let g:rehash256 = 1
 set t_Co=256
@@ -63,7 +64,7 @@ filetype plugin indent on
 set autoindent
 
 autocmd FileType c,h,cpp,go,py nnoremap <F8> :TagbarToggle<CR>
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
+autocmd FileType c,h,cpp,go,py nnoremap <Leader>jd :YcmCompleter GoTo<CR>
 
 "set youcompleteMe config
 let g:ycm_confirm_extra_conf=0
@@ -72,5 +73,13 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_string = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
+"set doxygen 
+let g:DoxygenToolkit_briefTag_pre="@函数描述  " 
+let g:DoxygenToolkit_paramTag_pre="@参数      " 
+let g:DoxygenToolkit_returnTag="@返回      " 
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
+let g:DoxygenToolkit_authorName="lizhongbo" 
 "nnoremap <silent> <F3> :NERDTree<CR>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
