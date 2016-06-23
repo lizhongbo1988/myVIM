@@ -19,7 +19,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
+set clipboard+=unnamed
 set history=1000
 set hlsearch
 set incsearch
@@ -40,9 +40,11 @@ set matchtime=1
 color molokai
 "colorscheme solarized
 let g:molokai_original = 1
+set background=dark
+"colorscheme solarized
+"let g:solarized_termclolors=256
 let g:rehash256 = 1
 set t_Co=256
-set background=dark
 
 
 "install plugin
@@ -53,10 +55,12 @@ Bundle 'gmarik/vundle'
 Bundle 'c.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
-"Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree'
 "Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'tagbar'
 Bundle 'DoxygenToolkit.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
 call vundle#end()
 
 filetype plugin indent on
@@ -64,7 +68,11 @@ filetype plugin indent on
 set autoindent
 
 autocmd FileType c,h,cpp,go,py nnoremap <F8> :TagbarToggle<CR>
-autocmd FileType c,h,cpp,go,py nnoremap <Leader>jd :YcmCompleter GoTo<CR>
+autocmd FileType c,cpp,objc,objcpp nnoremap <Leader>jd :YcmCompleter GoToDefinition<CR>
+inoremap <leader>; <C-x><C-o>
+
+"python3"
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 "set youcompleteMe config
 let g:ycm_confirm_extra_conf=0
@@ -81,5 +89,16 @@ let g:DoxygenToolkit_returnTag="@返回      "
 let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
 let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
 let g:DoxygenToolkit_authorName="lizhongbo" 
-"nnoremap <silent> <F3> :NERDTree<CR>
+"set NERDTree
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc()==0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+"set powerline
+let g:Powerline_symbols = 'fancy'
+
 set runtimepath^=~/.vim/bundle/ctrlp.vim
