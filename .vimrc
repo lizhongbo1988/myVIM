@@ -48,19 +48,18 @@ set t_Co=256
 
 
 "install plugin
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'c.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'fatih/vim-go'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'Xuyuanp/nerdtree-git-plugin'
-Bundle 'tagbar'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'c.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tagbar'
+Plugin 'DoxygenToolkit.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'w0rp/ale'   
 call vundle#end()
 
 filetype plugin indent on
